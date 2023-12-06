@@ -6,11 +6,25 @@ form {
     gap: 1rem;
     height: 69px;
     padding: 0 0.6rem 0 2rem;
+
+
+    position: relative;
+}
+
+.error {
+    position: absolute;
+    top: 25px;
+    left: 62%;
+    color: var(--error-color);
+    display: none;
 }
 
 input {
     font-family: inherit;
+    font-size: 18px;
+    line-height: 25px;
     background-color: transparent;
+    color: var(--text-color);
     border: none;
     width: 90%;
     height: 2rem;
@@ -18,11 +32,11 @@ input {
 
 input:focus {
     outline: none;
-    color: var(--text-color);
+    color: var(--placeholder-color);
 }
 
 input::placeholder {
-    color: var(--text-color);
+    color: var(--placeholder-color);
     font-size: 18px;
     line-height: 25px;
     align-items: center;

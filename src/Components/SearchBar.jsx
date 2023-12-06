@@ -1,16 +1,29 @@
-import React from 'react'
-import searchIcon from '../assets/searchIcon.svg'
-import styles from '../styles/search.module.css'
+import React, { useState } from "react";
+import searchIcon from "../assets/searchIcon.svg";
+import styles from "../styles/search.module.css";
 
 const SearchBar = () => {
-  return (
-    <form>
-        {/* <div>_search</div> */}
-        <img src={searchIcon} alt="_search" />
-        <input type="text" name="input" id="input" placeholder='Search Github username'/>
-        <button>Search</button>
-    </form>
-  )
-}
+  const [input, setInput] = useState("");
 
-export default SearchBar
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(input);
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className={styles.error}>Invalid Search!</div>
+      <img src={searchIcon} alt="_search" />
+      <input
+        type="text"
+        name="input"
+        id="input"
+        value={input}
+        onChange={(e)=> setInput(e.target.value)}
+        placeholder="Search Github username"
+      />
+      <button type="submit">Search</button>
+    </form>
+  );
+};
+
+export default SearchBar;

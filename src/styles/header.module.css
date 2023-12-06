@@ -3,12 +3,21 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 0 ;
+    color: var(--heading-color);
 }
 
 .mode {
     display: flex;
     align-items: center;
     gap: 0.7rem;
+}
+
+.mode:hover {
+    cursor: pointer;
+}
+
+.mode > h5 {
+    color: var(--mode-color);
 }
 
 h1 {

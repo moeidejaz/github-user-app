@@ -4,15 +4,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.1s linear;
 }
 
 :root {
     --body-color: #141D2F;
     --main-color: #1E2A47;
+    --heading-color: #FFFFFF;
+    --mode-color: #FFFFFF;
     --stats-bg-color: #141D2F;
     --text-color: #FFFFFF;
     --btn-bg-color: #0079ff;
     --btn-hover-color: #60ABFF;
+    --placeholder-color: #FFFFFF;
+    --social-icon-color: #FFFFFF;
+    --error-color: #f74646;
 }
 
 body {
