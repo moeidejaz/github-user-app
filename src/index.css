@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-color: #141D2F;
+    --main-color: #1E2A47;
+    --stats-bg-color: #141D2F;
+    --text-color: #FFFFFF;
+    --btn-bg-color: #0079ff;
+    --btn-hover-color: #60ABFF;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: var(--body-color);
+    color: var(--text-color);
+
+    width: 700px;
+    margin: 0 auto;
+}
