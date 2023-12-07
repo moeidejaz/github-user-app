@@ -1,8 +1,7 @@
 footer {
-    /* background-color: var(--header-bar-bg-color);
-    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.0532439); */
     padding: 1.15rem;
     text-align: center;
+    margin-top: 0.50rem;
   }
   
   .icon {

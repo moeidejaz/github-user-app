@@ -8,12 +8,14 @@
 }
 
 :root {
-    --body-color: #141D2F;
-    --main-color: #1E2A47;
+    --body-bg-color: #141D2F;
+    --main-bg-color: #1E2A47;
     --heading-color: #FFFFFF;
     --mode-color: #FFFFFF;
+    --username-color: #0079ff;
     --stats-bg-color: #141D2F;
     --text-color: #FFFFFF;
+    --grey-text-color: #FFFFFF;
     --btn-bg-color: #0079ff;
     --btn-hover-color: #60ABFF;
     --placeholder-color: #FFFFFF;
@@ -23,9 +25,27 @@
 
 body {
     font-family: 'Space Mono', monospace;
-    background-color: var(--body-color);
-    color: var(--text-color);
-
+    background-color: var(--body-bg-color);
     width: 700px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:450px){
+    body {
+        width: 370px;
+    }
+}
+
+@media (max-width:385px){
+    body {
+        width: 330px;
+    }
+}
+@media (max-width:345px){
+    body {
+        width: 290px;
+    }
 }
