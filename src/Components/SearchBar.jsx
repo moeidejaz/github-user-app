@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import searchIcon from "../assets/searchIcon.svg";
 import styles from "../styles/search.module.css";
 
 const SearchBar = () => {
@@ -12,7 +11,7 @@ const SearchBar = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.error}>Invalid Search!</div>
-      <img src={searchIcon} alt="_search" />
+      <img src="/img/searchIcon.svg" alt="_search" />
       <input
         type="text"
         name="input"

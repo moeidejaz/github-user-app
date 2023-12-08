@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ThemeSwitcher from "../utils/ThemeSwitcher";
 import styles from "../styles/header.module.css";
-import moon from '../assets/moon.svg'
-import sun from '../assets/sun.svg'
+import moon from '/img/moon.svg'
+import sun from '/img/sun.svg'
 
 const Header = () => {
   //changing the mode using state

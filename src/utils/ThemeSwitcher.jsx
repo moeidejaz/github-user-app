@@ -10,7 +10,7 @@ const lightTheme = [
   "--btn-bg-color: #0079ff",
   "--btn-hover-color: #60ABFF",
   "--placeholder-color: #222731",
-  "--social-icon-color : #000000",
+  "--social-icon-color : #697C9A",
   "--error-color:#f74646",
 ];
 

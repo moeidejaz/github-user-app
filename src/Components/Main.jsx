@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../styles/main.module.css";
 import SearchBar from "./SearchBar";
-import profile from "../assets/profile-pic.png";
 
 const Main = () => {
   return (
@@ -46,22 +45,22 @@ const Main = () => {
 
         <div className={styles.user_links}>
           <div className={styles.link}>
-            <img src="../assets/location.svg" alt="" />
+            <img src="/img/location.svg" alt="" />
             <p>Earth</p>
           </div>
 
           <div className={styles.link}>
-            <img src="../assets/twitter.svg" alt="" />
+            <img src="/img/twitter.svg" alt="" />
             <p>moeidejaz</p>
           </div>
 
           <div className={styles.link}>
-            <img src="../assets/link.svg" alt="" />
+            <img src="/img/link.svg" alt="" />
             <p>https://moeidejaz.ne...</p>
           </div>
 
           <div className={styles.link}>
-            <img src="../assets/org.svg" alt="" />
+            <img src="/img/org.svg" alt="" />
             <p>Not Available</p>
           </div>
         </div>
