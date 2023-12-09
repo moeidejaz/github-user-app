@@ -172,7 +172,7 @@ const Main = () => {
 
             <div className={styles.link}>
               <img src="/img/org.svg" alt="" />
-              <p style={{ color: user.company ? "initial" : "#4b6a9b80" }}>
+              <p style={{ color: user.company ? "" : "#4b6a9b80" }}>
                 {user.company ? user.company : "Not Available"}
               </p>
             </div>
