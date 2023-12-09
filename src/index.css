@@ -33,7 +33,7 @@ body {
     align-items: center;
 }
 
-@media (max-width:450px){
+@media (max-width:550px){
     body {
         width: 370px;
     }
