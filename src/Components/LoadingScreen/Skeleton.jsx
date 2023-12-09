@@ -1,9 +1,9 @@
 import React from "react";
-import { Skeleton, Stack } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import styles from "../../styles/main.module.css";
 import styles1 from "./skeleton.module.css";
 
-const CountryLoading = () => {
+const SkeletonLoading = () => {
   return (
     <section className={styles.user_details}>
       {/* ROW ONE */}
@@ -18,12 +18,12 @@ const CountryLoading = () => {
         </a>
       </div>
 
-      <p className={styles.joinDate}>
-        <Skeleton animation="wave" variant="text" width={100} />
+      <p className={styles1.joinDate}>
+        {/* <Skeleton animation="wave" variant="text" width={100} /> */}
       </p>
 
       {/* ROW TWO */}
-      <div className={styles.user_main}>
+      <div className={styles.bio}>
         <p>
           <Skeleton animation="wave" variant="text" />
           <Skeleton animation="wave" variant="text" />
@@ -55,4 +55,4 @@ const CountryLoading = () => {
   );
 };
 
-export default CountryLoading;
+export default SkeletonLoading;

@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.1s linear;
+    transition: all 0.2s ease-in-out;
 }
 
 :root {
@@ -34,6 +34,12 @@ body {
 }
 
 @media (max-width:550px){
+    body {
+        width: 420px;
+    }
+}
+
+@media (max-width:435px){
     body {
         width: 370px;
     }

@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import { InputContext } from "../App";
 import styles from "../styles/main.module.css";
-import SearchBar from "./SearchBar";
-import CountryLoading from "./LoadingScreen/Skeleton";
+
+import { SearchBar , formatStrings , formatJoinDate , Skeleton} from "../../NamedExports.js";
 
 const Main = () => {
-  const { username } = useContext(InputContext);
+  const { username , setError } = useContext(InputContext);
 
   const [user, setUser] = useState(null);
-  const [userr, setUserr] = useState(null);
 
   //fetching the userdata with username
   useEffect(() => {
@@ -19,7 +18,8 @@ const Main = () => {
         );
 
         const userData = await response.json();
-        setUser(userData);
+        userData?.message ? setError(true) : setUser(userData)
+
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -29,63 +29,13 @@ const Main = () => {
     //using username as dependency && username from useContext
   }, [username]);
 
-  //formating the blog link of user
-  function formatBlogLink(link) {
-    if (link.length <= 17) {
-      return link;
-    } else {
-      let str = "";
-      for (let i = 0; i <= 16; i++) {
-        str += link[i];
-      }
-      return str + "...";
-    }
-  }
-
-  //formating joining date to more readble format
-  function formatJoinDate(date) {
-    const monthName = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-
-    let year = "";
-    let month = "";
-    let day = "";
-
-    const ss = date.split("");
-
-    for (let i = 0; i <= 9; i++) {
-      if (i >= 0 && i <= 3) {
-        year += ss[i];
-      } else if (i >= 6 && i <= 6) {
-        month += ss[i];
-      } else if (i >= 8) {
-        day += ss[i];
-      }
-    }
-
-    const createdAt = `Joined ${day} ${monthName[month]} ${year}`;
-    return createdAt;
-  }
-
   //using these functions to return <a> or <p> depending on info, more interactive experience
   function returnTwitter(username) {
     if (username) {
       return (
         <a
           href={`https://twitter.com/${username}`}
-          className={styles.twitter}
+          className={styles.twitterLink}
           target="_blank"
         >
           {username}
@@ -99,8 +49,8 @@ const Main = () => {
   function returnBlog(link) {
     if (link) {
       return (
-        <a href={link} className={styles.twitter} target="_blank">
-          {formatBlogLink(link)}
+        <a href={link.includes("http") ? link : "https://" + link} className={styles.blogLink} target="_blank">
+          {formatStrings(link)}
         </a>
       );
     } else {
@@ -111,7 +61,7 @@ const Main = () => {
   return (
     <main>
       <SearchBar />
-      {/* using ternary for data || skeleton and then simple data processes */}
+      {/* using ternary to show skeleton untill data is fetched*/}
       {user ? (
         <section className={styles.user_details}>
           {/* ROW ONE */}
@@ -120,24 +70,24 @@ const Main = () => {
             alt="profile photo"
             className={styles.avatar}
           />
-          <div>
+          <section>
             <h1 className={styles.name}>{user.name}</h1>
             <a
               href={`https://github.com/${user.login}`}
               className={styles.username}
               target="_blank"
             >{`@${user.login}`}</a>
-          </div>
+          </section>
 
           <p className={styles.joinDate}>{formatJoinDate(user.created_at)}</p>
 
           {/* ROW TWO */}
-          <div className={styles.user_main}>
-            <p>{user.bio ? user.bio : "This profile has no bio"}</p>
-          </div>
+          <p className={styles.bio}>
+            {user.bio ? user.bio : "This profile has no bio"}
+          </p>
 
           {/* ROW THREE */}
-          <div className={styles.user_stats}>
+          <section className={styles.user_stats}>
             <div className={styles.repos}>
               <h5>Repos</h5>
               <h2>{user.public_repos}</h2>
@@ -150,36 +100,62 @@ const Main = () => {
               <h5>Following</h5>
               <h2>{user.following}</h2>
             </div>
-          </div>
+          </section>
 
-          <div className={styles.user_links}>
+          <section className={styles.user_links}>
             <div className={styles.link}>
-              <img src="/img/location.svg" alt="" />
+              <div
+                className={styles.locationSVG}
+                style={{
+                  backgroundColor: user.location
+                    ? ""
+                    : "rgba(75, 106, 155, 0.5)",
+                }}
+              />
               <p style={{ color: user.location ? "" : "#4b6a9b80" }}>
                 {user.location ? user.location : "Not Available"}
               </p>
             </div>
 
             <div className={styles.link}>
-              <img src="/img/twitter.svg" alt="" />
+              <div
+                className={styles.twitterSVG}
+                style={{
+                  backgroundColor: user.twitter_username
+                    ? ""
+                    : "rgba(75, 106, 155, 0.5)",
+                }}
+              />
               {returnTwitter(user.twitter_username)}
             </div>
 
             <div className={styles.link}>
-              <img src="/img/link.svg" alt="" />
+              <div
+                className={styles.linkSVG}
+                style={{
+                  backgroundColor: user.blog ? "" : "rgba(75, 106, 155, 0.5)",
+                }}
+              />
               {returnBlog(user.blog)}
             </div>
 
             <div className={styles.link}>
-              <img src="/img/org.svg" alt="" />
+              <div
+                className={styles.orgSVG}
+                style={{
+                  backgroundColor: user.company
+                    ? ""
+                    : "rgba(75, 106, 155, 0.5)",
+                }}
+              />
               <p style={{ color: user.company ? "" : "#4b6a9b80" }}>
-                {user.company ? user.company : "Not Available"}
+                {user.company ? formatStrings(user.company) : "Not Available"}
               </p>
             </div>
-          </div>
+          </section>
         </section>
       ) : (
-        <CountryLoading />
+        <Skeleton />
       )}
     </main>
   );

@@ -15,9 +15,8 @@ form {
 .error {
     position: absolute;
     top: 25px;
-    left: 62%;
+    right: 20%;
     color: var(--error-color);
-    display: none;
 }
 
 input {
@@ -75,5 +74,17 @@ button:hover {
 
     input::placeholder {
         font-size: 14px;
+    }
+
+    .error {
+        top: 25px;
+        font-size: 10px;
+        right: 24%;
+    }
+}
+
+@media (max-width:385px){
+    .error {
+        right: 26%;
     }
 }

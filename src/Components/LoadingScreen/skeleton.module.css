@@ -14,7 +14,7 @@
 
     .user_links {
         grid-template-columns: auto;
-        gap: 0;
+        gap: 1rem;
         grid-column: 1/-1;
     }
 }

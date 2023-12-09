@@ -4,8 +4,8 @@ import styles from "../styles/search.module.css";
 
 const SearchBar = () => {
   //getting the contextValues
-  const { input, handleInput, handleSubmit } = useContext(InputContext);
-  const [size, setSize] = useState("");
+  const { input, handleInput, handleSubmit , error } = useContext(InputContext);
+  const [size, setSize] = useState(window.innerWidth);
 
   //handle resize to change placeholder on certain width
   useEffect(() => {
@@ -22,7 +22,7 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className={styles.error}>Invalid Search!</div>
+      {error && <div className={styles.error}>{size < 386 ? "No Match!" : "Invalid Search!"}</div>}
       <img src="/img/searchIcon.svg" alt="_search" />
       <input
         type="text"
@@ -31,7 +31,7 @@ const SearchBar = () => {
         value={input}
         onChange={handleInput}
         autoComplete="off"
-        placeholder={size < 385 ? "Search Username" : "Search Github Username"}
+        placeholder={size > 480 ? "Search GitHub Username" : "Search Username"}
       />
       <button type="submit">Search</button>
     </form>

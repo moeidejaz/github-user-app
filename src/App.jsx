@@ -7,11 +7,13 @@ export const InputContext = createContext();
 
 function App() {
   const [input, setInput] = useState("");
+  const [error, setError] = useState(false)
   const [username, setUsername] = useState("moeidejaz");
 
   // function to handle inputs and submits
   function handleInput(e) {
     setInput(e.target.value);
+    setError(false)
   }
 
   function handleSubmit(e) {
@@ -22,7 +24,10 @@ function App() {
   //values to be passed in context
   const values = {
     input,
+    error,
+    setError,
     username,
+    setUsername,
     handleInput,
     handleSubmit,
   };
