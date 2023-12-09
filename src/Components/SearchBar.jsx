@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { InputContext } from "../App";
 import styles from "../styles/search.module.css";
 
 const SearchBar = () => {
-  const [input, setInput] = useState("");
+  //getting the contextValues
+  const { input, handleInput, handleSubmit } = useContext(InputContext);
+  const [size, setSize] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(input);
-  }
+  //handle resize to change placeholder on certain width
+  useEffect(() => {
+    function handleResize() {
+      setSize(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <form onSubmit={handleSubmit}>
       <div className={styles.error}>Invalid Search!</div>
@@ -17,8 +29,9 @@ const SearchBar = () => {
         name="input"
         id="input"
         value={input}
-        onChange={(e)=> setInput(e.target.value)}
-        placeholder="Search Github username"
+        onChange={handleInput}
+        autoComplete="off"
+        placeholder={size < 385 ? "Search Username" : "Search Github Username"}
       />
       <button type="submit">Search</button>
     </form>

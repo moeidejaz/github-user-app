@@ -12,7 +12,7 @@ const Header = () => {
     setDarkMode(!darkMode);
   }
 
-  //using swithTheme utility to change mode
+  //using ThemeSwitcher utility to change mode
   useEffect(() => {
     ThemeSwitcher(darkMode);
   }, [darkMode]);

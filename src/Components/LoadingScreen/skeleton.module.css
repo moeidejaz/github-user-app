@@ -1,0 +1,20 @@
+.user_links {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    grid-column: 2/-1;
+}
+
+@media (max-width: 528px) {
+
+    .m1 {
+        margin-left: 1rem;
+    }
+
+    .user_links {
+        grid-template-columns: auto;
+        gap: 0;
+        grid-column: 1/-1;
+    }
+}
