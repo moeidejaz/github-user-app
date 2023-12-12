@@ -1,6 +1,6 @@
 # GitHub User App
 
-Welcome to [GitHub User App](https://github-user-app-moeidejaz.netlify.app/){:target="_blank"}, a responsive ReactJS website that allows you to explore detailed information about GitHub users. Easily search for a user and discover important details such as their name, username, joining date, bio, location, Twitter handle, organization, and blog link.
+Welcome to [GitHub User App](https://github-user-app-moeidejaz.netlify.app/), a responsive ReactJS website that allows you to explore detailed information about GitHub users. Easily search for a user and discover important details such as their name, username, joining date, bio, location, Twitter handle, organization, and blog link.
 
 ## Features:
 - **User Details:** Search for a GitHub user by entering their username to access key information, including their name, joining date, bio, location, Twitter handle, organization, and blog link.
