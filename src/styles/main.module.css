@@ -43,7 +43,7 @@ main {
     margin: 1.5rem 0;
 }
 
-.bio{
+.bio {
     margin-top: 1rem;
     line-height: 26px;
     min-width: 490px;
@@ -108,25 +108,23 @@ main {
     -webkit-mask-size: 20px 20px;
     mask-size: 20px 20px;
     width: 20px;
-    height: 20px;background-color: var(--text-color);
+    height: 20px;
+    background-color: var(--text-color);
 }
 
 .locationSVG {
     -webkit-mask: url("/img/location.svg");
     mask: url("/img/location.svg");
-
     -webkit-mask-size: 13px 20px;
     mask-size: 13px 20px;
-
     width: 13px;
     height: 20px;
-     background-color: var(--text-color);
+    background-color: var(--text-color);
 }
 
 .twitterSVG {
     -webkit-mask-image: url("/img/twitter.svg");
     mask-image: url("/img/twitter.svg");
-
     -webkit-mask-size: 20px 16px;
     mask-size: 20px 16px;
     width: 20px;
@@ -170,7 +168,7 @@ main {
 
     .bio {
         grid-column: 1/-1;
-        margin-top:  2rem;
+        margin-top: 2rem;
     }
 
     .bio {
